@@ -18,18 +18,6 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(of = { "id" })
 @MappedSuperclass
-<<<<<<< HEAD
-public abstract class EntidadeNegocio implements Serializable {
-
-   @Id
-   @GeneratedValue(strategy = GenerationType.SEQUENCE)
-   private Long id;
-
-   @JsonIgnore
-   @Column
-   private Boolean habilitado;
-  
-=======
 
 public abstract class EntidadeNegocio implements Serializable {
     @Id
@@ -40,5 +28,4 @@ public abstract class EntidadeNegocio implements Serializable {
     @Column
     private Boolean habilitado;
 
->>>>>>> 665f385b391b3040a398ee2cd2bd709272403263
 }

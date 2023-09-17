@@ -1,10 +1,10 @@
-package br.com.ifpe.oxefood.api.cliente;
+package br.com.ifpe.oxefood.api.entregador;
 
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import br.com.ifpe.oxefood.modelo.cliente.Cliente;
+import br.com.ifpe.oxefood.modelo.entregador.Entregador;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,13 +27,47 @@ public class EntregadorRequest {
 
    private String foneFixo;
 
-   public Cliente build() {
-       return Cliente.builder()
-               .nome(nome)
-               .dataNascimento(dataNascimento)
-               .cpf(cpf)
-               .foneCelular(foneCelular)
-               .foneFixo(foneFixo)
-               .build();
+   private String rg;
+   
+   private Integer qtdEntregas;
+   
+   private Double valorFrete;
+   
+   private String rua;
+   
+   private Integer numero;
+   
+   private String bairro;
+   
+   private String cidade;
+   
+   private String cep;
+   
+   private String estado;
+   
+   private String complemento;
+
+   private Boolean ativo;
+
+   public Entregador build() {
+      return Entregador.builder()
+            .nome(nome)
+            .dataNascimento(dataNascimento)
+            .cpf(cpf)
+            .foneCelular(foneCelular)
+            .foneFixo(foneFixo)
+            .rg(rg)
+            .qtdEntregas(qtdEntregas)
+            .valorFrete(valorFrete)
+            .rua(rua)
+            .numero(numero)
+            .bairro(bairro)
+            .cidade(cidade)
+            .cep(cep)
+            .estado(estado)
+            .complemento(complemento)
+            .ativo(ativo)
+            .build();
+
    }
 }

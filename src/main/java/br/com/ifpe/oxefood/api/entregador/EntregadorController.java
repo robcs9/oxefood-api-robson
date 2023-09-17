@@ -18,7 +18,7 @@ import br.com.ifpe.oxefood.modelo.entregador.EntregadorService;
 public class EntregadorController {
 
    @Autowired
-   private EntregadorService clienteService;
+   private EntregadorService entregadorService;
 
    @PostMapping
    public ResponseEntity<Entregador> save(@RequestBody EntregadorRequest request) {

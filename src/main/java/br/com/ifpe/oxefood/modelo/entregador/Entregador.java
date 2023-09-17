@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,7 +29,7 @@ public class Entregador extends EntidadeAuditavel  {
 
    @Column
    private String nome;
-
+   
    @Column
    private LocalDate dataNascimento;
 
@@ -39,5 +41,38 @@ public class Entregador extends EntidadeAuditavel  {
 
    @Column
    private String foneFixo;
+
+   @Column
+   private String rg;
+   
+   @Column
+   private Integer qtdEntregas;
+   
+   @Column
+   private Double valorFrete;
+   
+   @Column
+   private String rua;
+   
+   @Column
+   private Integer numero;
+   
+   @Column
+   private String bairro;
+   
+   @Column
+   private String cidade;
+   
+   @Column
+   private String cep;
+   
+   @Column
+   private String estado;
+   
+   @Column
+   private String complemento;
+
+   @Column
+   private Boolean ativo;
 
 }
