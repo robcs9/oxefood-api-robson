@@ -8,8 +8,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

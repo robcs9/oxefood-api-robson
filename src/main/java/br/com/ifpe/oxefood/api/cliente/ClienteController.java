@@ -1,6 +1,6 @@
 package br.com.ifpe.oxefood.api.cliente;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
