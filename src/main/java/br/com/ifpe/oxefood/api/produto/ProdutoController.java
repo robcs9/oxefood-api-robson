@@ -17,40 +17,46 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ifpe.oxefood.modelo.produto.Produto;
 import br.com.ifpe.oxefood.modelo.produto.ProdutoService;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api/produto")
 @CrossOrigin
 public class ProdutoController {
 
-   @Autowired
-   private ProdutoService produtoService;
+    @Autowired
+    private ProdutoService produtoService;
 
-   @PostMapping
-   public ResponseEntity<Produto> save(@RequestBody ProdutoRequest request) {
+    @ApiOperation(value = "Serviço responsável por salvar um produto no sistema.")
+    @PostMapping
+    public ResponseEntity<Produto> save(@RequestBody ProdutoRequest request) {
 
-       Produto produto = produtoService.save(request.build());
-       return new ResponseEntity<Produto>(produto, HttpStatus.CREATED);
-   }
-
-   @GetMapping
-    public List<Produto> findAll() {
-  
-        return produtoService.findAll();
+        Produto produto = produtoService.save(request.build());
+        return new ResponseEntity<Produto>(produto, HttpStatus.CREATED);
     }
 
+    @ApiOperation(value = "Serviço responsável por listar todos os produtos do sistema.")
+    @GetMapping
+    public List<Produto> findAll() {
+
+        return produtoService.findAll();
+    }
+    
+    @ApiOperation(value = "Serviço responsável por obter um produto referente ao ID passado na URL.")
     @GetMapping("/{id}")
     public Produto findById(@PathVariable Long id) {
 
         return produtoService.findById(id);
     }
 
+    @ApiOperation(value = "Serviço responsável por atualizar um produto referente ao ID passado na url.")
     @PutMapping("/{id}")
     public ResponseEntity<Produto> update(@PathVariable("id") Long id, @RequestBody ProdutoRequest request) {
         produtoService.update(id, request.build());
         return ResponseEntity.ok().build();
     }
 
+    @ApiOperation(value = "Serviço responsável por deletar um produto referente ao ID passado na url.")
     @DeleteMapping("/{id}")
     public ResponseEntity<Produto> delete(@PathVariable Long id) {
         produtoService.delete(id);
