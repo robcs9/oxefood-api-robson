@@ -77,7 +77,7 @@ public class ClienteController {
 
     @PostMapping("/endereco/{clienteId}")
     public ResponseEntity<EnderecoCliente> adicionarEnderecoCliente(@PathVariable("clienteId") Long clienteId,
-            @RequestBody @Valid EnderecoClienteRequest request) {
+            @RequestBody @Valid  EnderecoClienteRequest request) {
 
         EnderecoCliente endereco = clienteService.adicionarEnderecoCliente(clienteId, request.build());
         return new ResponseEntity<EnderecoCliente>(endereco, HttpStatus.CREATED);
