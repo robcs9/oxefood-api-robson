@@ -8,10 +8,16 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.ifpe.oxefood.modelo.produto.Produto;
+import br.com.ifpe.oxefood.modelo.produto.ProdutoRepository;
+
 @Service
 public class CategoriaProdutoService {
     @Autowired
     private CategoriaProdutoRepository repository;
+
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
     @Transactional
     public CategoriaProduto save(CategoriaProduto categoria) {
@@ -45,6 +51,12 @@ public class CategoriaProdutoService {
     public void delete(Long id) {
 
         CategoriaProduto categoria = repository.findById(id).get();
+        
+        /* List<Produto> produtos = produtoRepository.findAll();
+        if (produtos.size() > 0) {
+            throw new CategoriaProdutoException("Não é permitido deletar uma categoria que contenha produtos")
+        } */
+
         categoria.setHabilitado(Boolean.FALSE);
         categoria.setVersao(categoria.getVersao() + 1);
 

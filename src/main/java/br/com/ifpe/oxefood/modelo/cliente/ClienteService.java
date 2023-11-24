@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.ifpe.oxefood.util.exception.ClienteException;
+
 @Service
 public class ClienteService {
     @Autowired
@@ -19,6 +21,9 @@ public class ClienteService {
 
     @Transactional
     public Cliente save(Cliente cliente) {
+        if(cliente.getNome().length() == 0) {
+            throw new ClienteException("Cliente deve possuir um nome.");
+        }
 
         cliente.setHabilitado(Boolean.TRUE);
         cliente.setVersao(1L);
