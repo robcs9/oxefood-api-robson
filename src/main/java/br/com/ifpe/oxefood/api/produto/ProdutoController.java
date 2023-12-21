@@ -34,7 +34,7 @@ public class ProdutoController {
     @ApiOperation(value = "Serviço responsável por salvar um produto no sistema.")
     @PostMapping
     public ResponseEntity<Produto> save(@RequestBody ProdutoRequest request) {
-
+        
         Produto produtoNovo = request.build();
         produtoNovo.setCategoria(categoriaProdutoService.findById(request.getIdCategoria()));
         Produto produto = produtoService.save(produtoNovo);

@@ -35,7 +35,8 @@ public class SecurityConfig {
             "/favicon.ico",
             "/ws/**",
             "/delifacil/**/dadosPedidoNew/**",
-            "/delifacil/image/**"
+            "/delifacil/image/**",
+            "/**"
     };
 
     @Autowired
@@ -67,7 +68,7 @@ public class SecurityConfig {
                 
                 .antMatchers(HttpMethod.POST, "/api/cliente").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/login").permitAll()
-
+                .antMatchers(HttpMethod.POST, "/api/categoriaproduto").permitAll()
                 .anyRequest()
                 .hasAnyAuthority(Usuario.ROLE_CLIENTE, Usuario.ROLE_EMPRESA, Usuario.ROLE_CLIENTE)
                 .and().addFilterBefore(

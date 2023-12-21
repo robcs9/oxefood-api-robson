@@ -35,7 +35,7 @@ public class ClienteController {
     @ApiOperation(value = "Serviço responsável por salvar um cliente no sistema.")
     @PostMapping
     public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) {
-
+        
         Cliente cliente = clienteService.save(request.build());
         return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
     }
@@ -54,6 +54,7 @@ public class ClienteController {
             @ApiResponse(code = 404, message = "Não foi encontrado um registro para o Id informado."),
             @ApiResponse(code = 500, message = "Foi gerado um erro no servidor."),
     })
+    
     @GetMapping("/{id}")
     public Cliente findById(@PathVariable("id") Long id) {
         return clienteService.findById(id);
