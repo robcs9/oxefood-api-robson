@@ -16,7 +16,7 @@ public class ProdutoRequest {
 
    private String titulo;
 
-   private Integer codigoProduto;
+   private String codigoProduto;
 
    private String descricao;
 
