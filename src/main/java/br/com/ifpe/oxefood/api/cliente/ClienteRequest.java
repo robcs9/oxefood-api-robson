@@ -59,6 +59,7 @@ public class ClienteRequest {
                 .nome(nome)
                 .dataNascimento(dataNascimento)
                 .cpf(cpf)
+                .email(email)
                 .foneCelular(foneCelular)
                 .foneFixo(foneFixo)
                 .build();

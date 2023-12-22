@@ -56,4 +56,7 @@ public class Cliente extends EntidadeAuditavel {
     @Column(length = 10)
     private String foneFixo;
 
+    @Column
+    private String email;
+
 }
